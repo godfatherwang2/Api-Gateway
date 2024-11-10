@@ -1,0 +1,6 @@
+#docker run -p 8001:8001 --name api-gateway-center -d api-gateway-center:1.0.5
+#docker run -p 8001:8001 --name api-gateway-center -d api-gateway-center:1.0.5
+
+#docker run -p 8001:8001 --name api-gateway-center -v /Users/fuzhengwei/1024/KnowledgePlanet/api-gateway/api-gateway-center/doc/data/nginx:/data/nginx --user $(id -u):$(id -g) -d api-gateway-center:1.0.5
+docker run -p 8081:8081 -v /Users/fuzhengwei/1024/KnowledgePlanet/api-gateway/api-gateway-center/doc/data/nginx:/data/nginx -v /var/run/docker.sock:/var/run/docker.sock --name api-gateway-center -d api-gateway-center:1.0.5 CP4-LISTEN:8001,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock TCP4-LISTEN:8001,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock
+#docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /Users/fuzhengwei/1024/KnowledgePlanet/api-gateway/api-gateway-center/doc/data/nginx/nginx.conf:/nginx.conf -p 8001:8001 --name api-gateway-center api-gateway-center:1.0.5 TCP4-LISTEN:8001,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock

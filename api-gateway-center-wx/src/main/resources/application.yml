@@ -1,0 +1,41 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://117.72.13.108:13306/api-gateway?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type-class-name: com.zaxxer.hikari.HikariDataSource
+    pool:
+      pool-name: Retail_HikariCP
+      minimum-idle: 15 #最小空闲连接数量
+      idle-timeout: 180000 #空闲连接存活最大时间，默认600000（10分钟）
+      maximum-pool-size: 25 #连接池最大连接数，默认是10
+      auto-commit: true  #此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      max-lifetime: 1800000 #此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      connection-timeout: 30000 #数据库连接超时时间,默认30秒，即30000
+      connection-test-query: SELECT 1
+
+  rabbitmq:
+    host: 117.72.13.108
+    port: 5672
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    mapper-locations: classpath:/mapper/*.xml
+      # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
+    type-aliases-package: cn.wx.gateway.center.infrastructure.po
+    global-config:
+        datacenter-id: 1
+        workerId: 1
+
+logging:
+  level:
+    org.mybatis.example.BlogMapper: DEBUG
+    java.sql.Connection: DEBUG
+    java.sql.Statement: DEBUG
+    java.sql.PreparedStatement: DEBUG

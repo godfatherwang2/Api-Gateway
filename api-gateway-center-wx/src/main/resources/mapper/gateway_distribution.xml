@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wx.gateway.center.infrastructure.dao.IGatewayDistributionDao">
+
+    <resultMap id="gatewayDistributionMap" type="cn.wx.gateway.center.infrastructure.po.GatewayDistribution">
+        <id column="id" property="id"/>
+        <id column="group_id" property="groupId"/>
+        <id column="gateway_id" property="gatewayId"/>
+        <id column="system_id" property="systemId"/>
+        <id column="system_name" property="systemName"/>
+        <id column="create_time" property="createTime"/>
+        <id column="update_time" property="updateTime"/>
+    </resultMap>
+
+
+    <select id="queryGatewayDistributionListByPage"
+            parameterType="cn.wx.gateway.center.infrastructure.common.OperationRequest"
+            resultMap="gatewayDistributionMap">
+        SELECT id, group_id, gateway_id, system_id, system_name, create_time, update_time
+        FROM gateway_distribution
+        <where>
+            <if test="data != null and data.groupId != ''">
+                and group_id = #{data.groupId}
+            </if>
+            <if test="data != null and data.gatewayId != ''">
+                and gateway_id = #{data.gatewayId}
+            </if>
+        </where>
+        order by id desc
+        limit #{pageStart},#{pageEnd}
+    </select>
+
+    <select id="queryGatewayDistributionListCountByPage"
+            parameterType="cn.wx.gateway.center.infrastructure.common.OperationRequest"
+            resultType="java.lang.Integer">
+        SELECT count(id) FROM gateway_distribution
+        <where>
+            <if test="data != null and data.groupId != ''">
+                and group_id = #{data.groupId}
+            </if>
+            <if test="data != null and data.gatewayId != ''">
+                and gateway_id = #{data.gatewayId}
+            </if>
+        </where>
+    </select>
+
+</mapper>
