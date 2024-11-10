@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.wx.gateway.sdk.config.GatewaySDKAutoConfig

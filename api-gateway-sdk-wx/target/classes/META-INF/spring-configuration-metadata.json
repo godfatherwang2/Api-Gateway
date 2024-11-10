@@ -1,0 +1,36 @@
+{
+  "groups": [
+    {
+      "name": "api-gateway-sdk",
+      "type": "cn.wx.gateway.sdk.config.GatewaySDKServiceProperties",
+      "sourceType": "cn.wx.gateway.sdk.config.GatewaySDKServiceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "api-gateway-sdk.address",
+      "type": "java.lang.String",
+      "description": "网关注册中心地址",
+      "sourceType": "cn.wx.gateway.sdk.config.GatewaySDKServiceProperties"
+    },
+    {
+      "name": "api-gateway-sdk.system-id",
+      "type": "java.lang.String",
+      "description": "系统标识",
+      "sourceType": "cn.wx.gateway.sdk.config.GatewaySDKServiceProperties"
+    },
+    {
+      "name": "api-gateway-sdk.system-name",
+      "type": "java.lang.String",
+      "description": "系统名称",
+      "sourceType": "cn.wx.gateway.sdk.config.GatewaySDKServiceProperties"
+    },
+    {
+      "name": "api-gateway-sdk.system-registry",
+      "type": "java.lang.String",
+      "description": "RPC注册中心；zookeeper:\/\/127.0.0.1:2181",
+      "sourceType": "cn.wx.gateway.sdk.config.GatewaySDKServiceProperties"
+    }
+  ],
+  "hints": []
+}
